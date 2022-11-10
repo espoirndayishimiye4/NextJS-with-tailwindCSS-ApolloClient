@@ -2,14 +2,40 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import react from "react";
-import Modal  from "./modal";
+import { useQuery } from "@apollo/client";
+import Modal from "./modal";
+import { GET_POPULATION } from "../graphql/queries";
+
+
 
 export default function Home() {
+
+  const {loading, error, data} = useQuery(GET_POPULATION);
+ if(loading){
+  return "loading"
+ }
+ if(error){
+  return "error"
+ }
+ 
+  
+//  return data.getAllPopulations.map(({ id, Country, Area, Totalpopulation }) => (
+//   <div key={id}>
+//     <h3>{Country}</h3>
+//     <br />
+//     <b>About Area:</b>
+//     <p>{Area}</p>
+//     <br />
+//   </div>
+// ));
+
   return (
     <div className="flex flex-col">
       <div className="overflow-x-auto">
         <div className="p-1.5 w-full inline-block align-middle">
-          <p className="text-center font-bold bg-green-50 text-xl">List Of Countries With population</p>
+          <p className="text-center font-bold bg-green-50 text-xl">
+            List Of Countries With population
+          </p>
           <div className="overflow-hidden border rounded-lg">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
@@ -17,9 +43,7 @@ export default function Home() {
                   <th
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
-                  >
-                    
-                  </th>
+                  ></th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
@@ -36,7 +60,7 @@ export default function Home() {
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
                   >
-                    Area 
+                    Area
                   </th>
                   <th
                     scope="col"
@@ -47,9 +71,7 @@ export default function Home() {
                   <th
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
-                  >
-                    
-                  </th>
+                  ></th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
@@ -64,16 +86,16 @@ export default function Home() {
                     1
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                  Albania
+                    Albania
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                  2000
+                    2000
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                  28748
+                    28748
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                  3401198
+                    3401198
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-green-500 hover:text-green-700" href="#">
@@ -86,7 +108,6 @@ export default function Home() {
                     </a>
                   </td>
                 </tr>
-               
               </tbody>
             </table>
           </div>

@@ -10,7 +10,7 @@ const Modal = () => {
         type="button"
         onClick={() => setShowModal(true)}
       >
-        Fill Details
+        Create Record
       </button>
       {showModal ? (
         <>
@@ -18,7 +18,7 @@ const Modal = () => {
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
-                  <h3 className="text-3xl font=semibold">General Info</h3>
+                  <h3 className="text-3xl font=semibold"></h3>
                   <button
                     className="bg-transparent border-0 text-black float-right"
                     onClick={() => setShowModal(false)}
@@ -30,20 +30,20 @@ const Modal = () => {
                 </div>
                 <div className="relative p-6 flex-auto">
                   <form className="bg-gray-200 shadow-md rounded px-8 pt-6 pb-8 w-full">
-                    <label className="block text-black text-sm font-bold mb-1">
-                      First Name
+                    <label className="block text-black text-sm text-left font-bold mb-1">
+                    Country
                     </label>
                     <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
-                    <label className="block text-black text-sm font-bold mb-1">
-                      Last Name
+                    <label className="block text-black text-left text-sm font-bold mb-1">
+                      Year
                     </label>
                     <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
-                    <label className="block text-black text-sm font-bold mb-1">
-                      Address
+                    <label className="block text-black text-left text-sm font-bold mb-1">
+                      Area
                     </label>
                     <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
-                    <label className="block text-black text-sm font-bold mb-1">
-                      City
+                    <label className="block text-black text-left text-sm font-bold mb-1">
+                      Total Population
                     </label>
                     <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
                   </form>
